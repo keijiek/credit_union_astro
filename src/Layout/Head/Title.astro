@@ -1,0 +1,16 @@
+---
+interface Props {
+  siteTitle: string;
+  pageTitle?: string;
+}
+const { siteTitle, pageTitle } = Astro.props;
+
+function titleString(): string {
+  if (!!pageTitle) {
+    return pageTitle + " | " + siteTitle;
+  }
+  return siteTitle;
+}
+---
+
+<title>{titleString()}</title>
