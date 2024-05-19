@@ -1,9 +1,9 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import ContentWrap from "./ContentWrap/ContentWrap.astro";
-import HeadCommon from "./Head/HeadCommon.astro";
-import Title from "./Head/Title.astro";
-import Footer from "./Footer/Footer.astro";
+import ContentWrap from "@/components/ContentWrap/ContentWrap.astro";
+import HeadCommon from "@/layout/Head/HeadCommon.astro";
+import Title from "@/layout/Head/Title.astro";
+import Footer from "@/layout/Footer/Footer.astro";
 
 interface Props {
   pageTitle?: string;
@@ -21,7 +21,7 @@ const SITE_TITLE: string = "宮崎県架空信用組合";
     <Title pageTitle={pageTitle} siteTitle={SITE_TITLE} />
     <ViewTransitions />
   </head>
-  <body>
+  <body class="text-neutral-900">
     <header class="bg-slate-950 text-white">
       <ContentWrap>
         <h1>{SITE_TITLE}</h1>
@@ -32,10 +32,8 @@ const SITE_TITLE: string = "宮崎県架空信用組合";
         <h2>あいうえお</h2>
       </ContentWrap>
     </main>
-    <footer class="bg-slate-950 text-white">
-      <ContentWrap>
-        <Footer />
-      </ContentWrap>
+    <footer>
+      <Footer siteTitle={SITE_TITLE} />
     </footer>
   </body>
 </html>

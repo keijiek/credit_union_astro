@@ -1,0 +1,62 @@
+---
+import ContentWrap from "@/components/ContentWrap/ContentWrap.astro";
+import FooterAnchorItem from "./FooterAnchorItem.astro";
+
+interface Props {
+  siteTitle: string;
+}
+type footerAnchorListItem = {
+  name: string;
+  href: string;
+  isPdf: boolean;
+};
+
+const { siteTitle } = Astro.props;
+
+const footerAnchorList: footerAnchorListItem[] = [
+  { name: "個人情報保護宣言", href: "#", isPdf: false },
+  { name: "商品販売に関する勧誘方針", href: "#", isPdf: false },
+  { name: "保険募集指針", href: "#", isPdf: false },
+  { name: "地域密着型金融推進計画", href: "#", isPdf: false },
+  { name: "リスク管理方針", href: "#", isPdf: true },
+  { name: "顧客受入方針", href: "#", isPdf: true },
+  { name: "反社会的勢力に対する基本方針", href: "#", isPdf: true },
+  {
+    name: "当組合の苦情処理措置・紛争解決措置等の概要",
+    href: "#",
+    isPdf: true,
+  },
+  { name: "ディスクロージャー・ポリシー", href: "#", isPdf: true },
+  {
+    name: "当組合のマネー・ローンダリング、テロ資金供与及び拡散金融対策に係る対応方針について",
+    href: "#",
+    isPdf: true,
+  },
+];
+---
+
+<>
+  <div class="border-solid border-orange-500 border-t">
+    <h3>
+      <span class="text-2xl">緊急時のお問い合わせ</span>
+      <span class="text-sm">CONTACT</span>
+    </h3>
+  </div>
+  <div class="bg-emerald-100 border-solid border-emerald-500 border-t">
+    <ContentWrap>
+      <p class="text-left">{siteTitle}</p>
+    </ContentWrap>
+  </div>
+  <div class="bg-emerald-100 border-solid border-emerald-500 border-t">
+    <ContentWrap>
+      <ul class="list-disc ps-6 lg:ps-4 flex flex-col gap-1">
+        {footerAnchorList.map((item) => <FooterAnchorItem item={item} />)}
+      </ul>
+    </ContentWrap>
+  </div>
+  <div class="bg-emerald-500 text-white">
+    <ContentWrap>
+      <p class="text-center">&copy;&nbsp;2024&nbsp;{siteTitle}</p>
+    </ContentWrap>
+  </div>
+</>

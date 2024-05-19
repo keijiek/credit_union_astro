@@ -1,0 +1,18 @@
+---
+import PdfIcon from "@/components/svgs/PdfIcon.astro";
+interface Props {
+  item: {
+    name: string;
+    href: string;
+    isPdf: boolean;
+  };
+}
+
+const { item } = Astro.props;
+---
+
+<li>
+  <a class="hover:underline align-baseline" href={item.href}
+    >{item.name}{item.isPdf ? <PdfIcon size={24} color="red" /> : ""}</a
+  >
+</li>
